@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { WinstonModule } from 'nest-winston';
 import LokiTransport from 'winston-loki';
 import { PrometheusModule } from "@willsoto/nestjs-prometheus"
+
 @Module({
   imports: [
     WinstonModule.forRoot({
@@ -18,7 +19,7 @@ import { PrometheusModule } from "@willsoto/nestjs-prometheus"
       ]
     }),
     PrometheusModule.register({
-      path: '/metrics/logger'
+      path: '/metrics/logger' // 👈 Optional: if not set, the default endpoint will be /metrics
     })
   ],
   controllers: [AppController],
