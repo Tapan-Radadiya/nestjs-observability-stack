@@ -3,7 +3,7 @@ services:
     image: prom/prometheus:latest
     container_name: prometheus
     ports:
-      - "9000:9000"
+      - "9000:9090"
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus_data:/prometheus
@@ -12,7 +12,7 @@ services:
     image: grafana/grafana-enterprise
     container_name: grafana
     ports:
-      - "5000:5000"
+      - "5000:3000"
     volumes:
       - grafana-loki:/var/lib/grafana
   
