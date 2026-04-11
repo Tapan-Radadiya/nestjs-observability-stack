@@ -14,8 +14,7 @@ export class PrometheusCustomMetricsInterceptor implements NestInterceptor {
     const req = httpContext.getRequest()
     const res = httpContext.getResponse()
 
-    const { method, url, route } = req
-
+    const { method, url, route: { path } } = req
     const reqStartTime = Date.now()
 
     return next
@@ -24,7 +23,7 @@ export class PrometheusCustomMetricsInterceptor implements NestInterceptor {
         tap(async () => {
           const reqResTime = (Date.now() - reqStartTime) / 1000
           const status = res.statusCode
-          await this.prometheusService.recordMetric(method, route, status, reqResTime)
+          await this.prometheusService.recordMetric(method, path, status, reqResTime)
         }));
   }
 }

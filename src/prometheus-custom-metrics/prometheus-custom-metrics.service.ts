@@ -9,7 +9,7 @@ export class PrometheusCustomMetricsService {
     ) { }
 
     async recordMetric(method, route, status, duration) {
-        if (typeof duration !== 'number') return // validate any random arbitry value as string
+        if (typeof duration !== 'number') return // validate any random arbitrary value as string
         this.couter.inc({
             method,
             route,
