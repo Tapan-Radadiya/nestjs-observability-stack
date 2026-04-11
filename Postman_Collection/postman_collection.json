@@ -1,0 +1,75 @@
+{
+  "info": {
+    "_postman_id": "78224729-b65e-4763-8d02-631c4f85e92b",
+    "name": "Medium Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26647279"
+  },
+  "item": [
+    {
+      "name": "Test",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{NESTJS_URL}}",
+          "host": [
+            "{{NESTJS_URL}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Slow Route",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{NESTJS_URL}}/slow-route",
+          "host": [
+            "{{NESTJS_URL}}"
+          ],
+          "path": [
+            "slow-route"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error Route",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{NESTJS_URL}}/error-route",
+          "host": [
+            "{{NESTJS_URL}}"
+          ],
+          "path": [
+            "error-route"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Random Delay",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{NESTJS_URL}}/random-delay",
+          "host": [
+            "{{NESTJS_URL}}"
+          ],
+          "path": [
+            "random-delay"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
