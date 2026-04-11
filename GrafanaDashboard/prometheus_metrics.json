@@ -481,7 +481,8 @@
                 {
                     "editorMode": "code",
                     "exemplar": false,
-                    "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{instance=~\"$instance\"}[1m])) * 1000",
+                    "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{instance=~\"$instance\"}[2m])) * 1000",
+                    "format": "time_series",
                     "instant": false,
                     "legendFormat": "{{method}} {{route}}",
                     "range": true,
@@ -672,7 +673,7 @@
             "targets": [
                 {
                     "editorMode": "code",
-                    "expr": "rate(http_requests_total{instance=~\"$instance\"}[1m])",
+                    "expr": "rate(http_requests_total{instance=~\"$instance\"}[2m])",
                     "legendFormat": "{{method}} {{route}}",
                     "range": true,
                     "refId": "A"
