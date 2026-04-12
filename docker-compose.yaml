@@ -1,4 +1,12 @@
 services:
+
+  backend:
+    container_name: nestjs_observability-stack
+    build: 
+      context: .
+    ports:
+      - "3000:3000"
+    
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -7,6 +15,8 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus_data:/prometheus
+    depends_on:
+      - backend
   
   grafana:
     image: grafana/grafana-enterprise
@@ -15,6 +25,8 @@ services:
       - "5000:3000"
     volumes:
       - grafana-loki:/var/lib/grafana
+    depends_on:
+      - backend
   
 volumes:
   prometheus_data:
